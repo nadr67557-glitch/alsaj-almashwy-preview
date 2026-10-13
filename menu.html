@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة الطعام | الصاج - المشوي</title>
+    <meta name="description" content="قائمة طعام مطعم الصاج المشوي — 12 تصنيفًا و207 أصناف من الشواء والبيتزا والشاورما والفطائر والعصائر">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navigation.css">
+</head>
+<body>
+
+    <!-- ========== نظام التنقل الموحد (Shared Header) ========== -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <div class="site-header-start">
+                <a href="index.html" class="nav-back-btn" aria-label="الرجوع للرئيسية">
+                    <span class="nav-back-arrow" aria-hidden="true">→</span>
+                    <span class="nav-back-text">الرئيسية</span>
+                </a>
+                <a href="index.html" class="site-brand" aria-label="الصاج - المشوي الصفحة الرئيسية">
+                <span class="site-brand-text">الصاج - المشوي</span>
+                <span class="site-brand-tagline">«مشوي على أصله»</span>
+            </a>
+            </div>
+            <div class="site-header-actions">
+                <a href="cart.html" class="nav-cart-btn" aria-label="عرض السلة والطلب">
+                    <span class="nav-cart-icon" aria-hidden="true">🛒</span>
+                    <span class="nav-cart-badge" id="navCartBadge">0</span>
+                </a>
+                <button class="nav-toggle-btn" id="navToggleBtn" type="button" aria-label="فتح القائمة الرئيسية" aria-expanded="false" aria-controls="siteNavDrawer">
+                    <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Drawer القائمة الموحدة -->
+    <div class="nav-drawer" id="siteNavDrawer" role="dialog" aria-modal="true" aria-labelledby="navDrawerTitle" aria-hidden="true">
+        <div class="nav-drawer-backdrop" id="navDrawerBackdrop"></div>
+        <div class="nav-drawer-panel">
+            <div class="nav-drawer-header">
+                <span class="nav-drawer-title" id="navDrawerTitle">الصاج - المشوي</span>
+                <button type="button" class="nav-drawer-close" id="navDrawerClose" aria-label="إغلاق القائمة">✕</button>
+            </div>
+            <nav class="nav-drawer-body" aria-label="القائمة الرئيسية">
+                <ul class="nav-menu-list">
+                    <li>
+                        <a href="index.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">🏠</span>
+                            <span class="nav-item-text">الرئيسية</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="menu.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">📋</span>
+                            <span class="nav-item-text">المنيو</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cart.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">🛒</span>
+                            <span class="nav-item-text">السلة والطلب</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="branches.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true"><span class="red-blinking-dot"></span></span>
+                            <span class="nav-item-text">الفروع</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">🔥</span>
+                            <span class="nav-item-text">من نحن</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="gallery.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">🖼️</span>
+                            <span class="nav-item-text">معرض الصور</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-menu-link">
+                            <span class="nav-item-icon" aria-hidden="true">💬</span>
+                            <span class="nav-item-text">تواصل وتقييمات</span>
+                            <span class="nav-item-indicator" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="nav-drawer-footer">
+                <p>«مشوي على أصله ... بطعم لا يُنسى»</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== بانر المنيو ========== -->
+    <section class="page-hero-banner">
+        <div class="container">
+            <header class="section-header" style="margin-bottom: 1.5rem;">
+                <h1 class="section-title">قائمة الطعام</h1>
+                <p class="section-subtitle">تصفّح أصنافنا المختارة بعناية — 207 أصناف طازجة في 12 تصنيفًا</p>
+            </header>
+        </div>
+    </section>
+
+    <!-- ========== قسم المنيو والتصنيفات ========== -->
+    <main class="menu" id="menu" style="padding-top: 1rem; padding-bottom: 5rem;">
+        <div class="container">
+            <!-- الواجهة الأولى: شبكة التصنيفات الـ12 فقط كبطاقات بصرية أنيقة -->
+            <section class="categories-view" id="categoriesView" aria-label="تصنيفات قائمة الطعام">
+                <div class="categories-grid" id="categoriesGrid">
+                    <!-- تُولّد بطاقات التصنيفات الـ12 ديناميكيًا من RestaurantData.categories بواسطة renderCategoriesGrid() -->
+                </div>
+            </section>
+
+            <!-- الواجهة الثانية: أصناف التصنيف المختار (قائمة رأسية مضغوطة داخل نفس الصفحة) -->
+            <section class="category-detail-view" id="categoryDetailView" hidden aria-label="أصناف التصنيف المختار">
+                <div class="category-detail-header">
+                    <button type="button" class="back-to-categories-btn" id="backToCategoriesBtn" aria-label="العودة للتصنيفات">
+                        <span class="back-arrow" aria-hidden="true">←</span>
+                        <span>العودة للتصنيفات</span>
+                    </button>
+                    <div class="category-detail-title-wrap">
+                        <h2 class="category-detail-title" id="categoryDetailTitle"></h2>
+                        <span class="category-detail-badge" id="categoryDetailCount"></span>
+                    </div>
+                </div>
+
+                <div class="category-note-box" id="categoryNoteBox" hidden></div>
+
+                <div class="category-items-list" id="categoryItemsList" role="list">
+                    <!-- تُولّد جميع أصناف التصنيف في قائمة رأسية مضغوطة ومريحة للجوال -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- زر السلة العائم -->
+    <a href="cart.html" class="cart-fab" id="cartFab" aria-label="عرض السلة والطلب">
+        <span>🛒</span>
+        <span class="cart-fab-count" id="cartFabCount">0</span>
+    </a>
+
+    
+
+    <!-- ========== نافذة تفاصيل المنتج (Product Modal) ========== -->
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalName" aria-hidden="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-panel">
+            <button type="button" class="modal-close" id="modalClose" aria-label="إغلاق نافذة المنتج">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div class="modal-image" id="modalImage" role="img" aria-label="صورة المنتج"></div>
+            <div class="modal-body">
+                <h3 class="modal-name" id="modalName"></h3>
+                <p class="modal-desc" id="modalDesc"></p>
+                <p class="modal-price" id="modalPrice"></p>
+                <section class="modal-additions" id="modalAdditions" hidden>
+                    <h4 class="modal-additions-title">الإضافات</h4>
+                </section>
+                <div class="modal-quantity">
+                    <span class="modal-quantity-label">الكمية</span>
+                    <div class="qty-control">
+                        <button type="button" class="qty-btn" id="qtyMinus" aria-label="إنقاص الكمية">−</button>
+                        <span class="qty-value" id="qtyValue">1</span>
+                        <button type="button" class="qty-btn" id="qtyPlus" aria-label="زيادة الكمية">+</button>
+                    </div>
+                </div>
+                <button type="button" class="modal-add-btn" id="modalAddBtn">أضف للسلة</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== Footer ========== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h3 class="footer-logo-text">الصاج - المشوي</h3>
+                    <p class="footer-tagline">«مشوي على أصله ... بطعم لا يُنسى»</p>
+                </div>
+                <nav class="footer-nav">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="menu.html">المنيو</a></li>
+                        <li><a href="cart.html">السلة والطلب</a></li>
+                        <li><a href="branches.html">الفروع</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="gallery.html">معرض الصور</a></li>
+                        <li><a href="contact.html">تواصل وتقييمات</a></li>
+                    </ul>
+                </nav>
+                <div class="footer-contact">
+                    <h4>بيانات المطعم</h4>
+                    <p>📞 <a href="tel:0502686862" dir="ltr">0502686862</a></p>
+                    <p>✉️ <a href="mailto:alsajalmashwy@gmail.com" dir="ltr">alsajalmashwy@gmail.com</a></p>
+                    <p><span class="red-blinking-dot" aria-hidden="true"></span> نجران — طريق الملك سلمان بن عبدالعزيز (ش الجيش)</p>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    © <span id="currentYear"></span> الصاج - المشوي — جميع الحقوق محفوظة
+                </p>
+                <div class="footer-designer">
+                    <div class="designer-logo">
+                        <span class="designer-badge">KJ</span>
+                    </div>
+                    <div class="designer-info">
+                        <p class="designer-name">خالد الجراش</p>
+                        <p class="designer-role">مصمم مواقع وحلول رقمية</p>
+                        <p class="designer-phone">
+                            <a href="tel:779184839" dir="ltr">779184839</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر العودة للأعلى -->
+    <button id="scrollToTopBtn" class="scroll-to-top" type="button" aria-label="العودة إلى أعلى الصفحة" title="العودة إلى أعلى الصفحة">
+        <svg class="scroll-to-top-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <script src="js/data.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

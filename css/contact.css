@@ -1,0 +1,353 @@
+/* ===================================
+   الصاج - المشوي — صفحة التواصل والتقييمات
+   هوية داكنة مطابقة لبقية الصفحات
+   =================================== */
+
+.page-hero {
+    position: relative;
+    text-align: center;
+    padding: 7.5rem 1.25rem 2.5rem;
+    background: radial-gradient(55% 60% at 50% 0%, rgba(200, 29, 29, 0.20) 0%, rgba(10, 10, 10, 0) 70%);
+}
+.page-kicker {
+    color: #ff6b1a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+.page-title {
+    font-size: clamp(1.7rem, 5vw, 2.6rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff6b1a, #c81d1d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.75rem;
+}
+.page-subtitle {
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 42rem;
+    margin: 0 auto 1.75rem;
+    line-height: 1.9;
+}
+.page-hero-actions {
+    display: flex;
+    gap: 0.9rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+.demo-flag {
+    display: inline-block;
+    color: #ffb27a;
+    background: rgba(255, 107, 26, 0.08);
+    border: 1px solid rgba(255, 107, 26, 0.35);
+    border-radius: 999px;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+}
+
+.contact-page .section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem;
+}
+.contact-page .section-head { text-align: center; margin-bottom: 2.25rem; }
+.contact-page .section-head h2 {
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: 800;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.85rem;
+}
+.contact-page .section-head h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 60px;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #ff6b1a, #c81d1d);
+}
+.contact-page .section-head p { color: rgba(255, 255, 255, 0.62); margin-top: 0.5rem; }
+
+/* ===== الأزرار ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-height: 48px;
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #ff6b1a, #c81d1d);
+    color: #fff;
+    box-shadow: 0 10px 26px rgba(200, 29, 29, 0.35);
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.18);
+    color: #fff;
+}
+.btn-ghost:hover { border-color: #ff6b1a; color: #ff6b1a; }
+.btn[disabled], .btn.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+.contact-page :is(a, button, input, select, textarea):focus-visible {
+    outline: 2px solid #ff6b1a;
+    outline-offset: 2px;
+}
+
+/* ===== بطاقات عامة ===== */
+.card {
+    background: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===== ملخص التقييمات ===== */
+.rating-summary {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+@media (min-width: 720px) { .rating-summary { grid-template-columns: 320px 1fr; } }
+.rating-score { text-align: center; }
+.rating-num { font-size: 3.4rem; font-weight: 800; color: #fff; }
+.rating-out { color: rgba(255, 255, 255, 0.6); font-weight: 700; }
+.rating-stars { color: #ff6b1a; font-size: 1.35rem; letter-spacing: 3px; }
+.stars-dim { color: rgba(255, 255, 255, 0.22); }
+.rating-count { color: rgba(255, 255, 255, 0.62); font-size: 0.9rem; margin-top: 0.6rem; }
+.dist-row {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr 2rem;
+    align-items: center;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.88rem;
+    margin: 0.45rem 0;
+}
+.dist-bar {
+    height: 8px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+.dist-bar i {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #ff6b1a, #c81d1d);
+    transition: width 0.6s ease;
+}
+
+/* ===== بطاقات المراجعات ===== */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+}
+@media (min-width: 680px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+.review-card { position: relative; }
+.review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.8rem;
+}
+.review-author { font-weight: 800; font-size: 1.05rem; }
+.review-stars { color: #ff6b1a; letter-spacing: 2px; white-space: nowrap; }
+.review-text {
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.95;
+    font-size: 0.98rem;
+}
+.review-source {
+    margin-top: 0.9rem;
+    padding-top: 0.7rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.78rem;
+}
+.review-card.demo-card { border-color: rgba(255, 107, 26, 0.45); }
+.demo-chip {
+    position: absolute;
+    top: -12px;
+    left: 14px;
+    background: #2a1505;
+    border: 1px solid #ff6b1a;
+    color: #ffb27a;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.7rem;
+}
+
+/* ===== نموذج التقييم التجريبي ===== */
+.write-card { max-width: 620px; margin: 0 auto; }
+.write-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.35rem; }
+.card-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin-bottom: 1.1rem; }
+.stars-input {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+.star-opt {
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.22);
+    padding: 0.2rem 0.35rem;
+    border-radius: 10px;
+    user-select: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+}
+.star-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.star-opt.is-active { color: #ff6b1a; }
+.star-opt:active { transform: scale(0.92); }
+.star-hint { text-align: center; color: rgba(255, 255, 255, 0.62); font-size: 0.88rem; margin-bottom: 1.1rem; }
+
+/* ===== الحقول ===== */
+.field { display: block; margin-bottom: 1rem; }
+.field > span {
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.45rem;
+}
+.field input, .field select, .field textarea {
+    width: 100%;
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    color: #fff;
+    padding: 0.8rem 0.9rem;
+    font: inherit;
+    min-height: 48px;
+    transition: border-color 0.2s ease;
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #ff6b1a; outline: none; }
+.field .req { color: #ff6b1a; }
+.field-error {
+    display: block;
+    color: #ff7d7d;
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    min-height: 1em;
+}
+.field.has-error input, .field.has-error select, .field.has-error textarea { border-color: #c81d1d; }
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 1rem;
+}
+@media (min-width: 680px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+.form-privacy {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+    margin-top: 0.9rem;
+    line-height: 1.8;
+}
+
+/* ===== القنوات ===== */
+.channels-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+@media (min-width: 640px) { .channels-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .channels-grid { grid-template-columns: repeat(3, 1fr); } }
+.channel { display: flex; gap: 0.9rem; align-items: flex-start; }
+.channel-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    background: rgba(255, 107, 26, 0.12);
+    border: 1px solid rgba(255, 107, 26, 0.3);
+}
+.channel h3 { font-size: 0.92rem; color: rgba(255, 255, 255, 0.6); font-weight: 700; margin-bottom: 0.2rem; }
+.channel a { color: #fff; font-weight: 800; font-size: 1.02rem; transition: color 0.15s ease; word-break: break-word; }
+.channel a:hover { color: #ff6b1a; }
+.channel p { color: rgba(255, 255, 255, 0.85); font-weight: 700; }
+.channel.is-off { opacity: 0.65; }
+.channel.is-off .channel-icon { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.12); }
+.social-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+.social-chip {
+    min-height: 40px;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    border: 1px dashed rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+.branches-line { text-align: center; margin-top: 1.5rem; color: rgba(255, 255, 255, 0.7); }
+.branches-line a { color: #ff6b1a; font-weight: 800; }
+
+/* ===== رسالة نجاح محلية ===== */
+.inline-note {
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-top: 1rem;
+}
+.inline-note.ok {
+    background: rgba(255, 107, 26, 0.08);
+    border: 1px solid rgba(255, 107, 26, 0.4);
+    color: #ffc79c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn, .star-opt, .dist-bar i { transition: none; }
+}

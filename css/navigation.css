@@ -1,0 +1,512 @@
+/* ===================================
+   الصاج - المشوي — نظام التنقل الموحد
+   Unified Navigation Stylesheet (Transparent Video Overlay)
+   =================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 120;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 107, 26, 0.22);
+    width: 100%;
+}
+
+.site-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0 1.25rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.site-brand-text {
+    font-size: 1.25rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ff6b1a, #c81d1d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.3px;
+}
+
+.site-brand-tagline {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .site-brand-tagline {
+        display: inline-block;
+    }
+}
+
+.site-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.nav-cart-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.75rem;
+    border-radius: 10px;
+    background: rgba(255, 107, 26, 0.12);
+    border: 1px solid rgba(255, 107, 26, 0.3);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    gap: 0.45rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.nav-cart-btn:hover {
+    background: rgba(255, 107, 26, 0.25);
+    border-color: #ff6b1a;
+}
+
+.nav-cart-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.nav-cart-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #ff6b1a;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(255, 107, 26, 0.4);
+}
+
+.nav-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    font-size: 1.45rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.nav-toggle-btn:hover,
+.nav-toggle-btn:focus-visible {
+    background: rgba(255, 107, 26, 0.22);
+    border-color: #ff6b1a;
+    outline: none;
+}
+
+/* ===== نافذة القائمة الشفافة فوق المقطع (Transparent Video Floating Overlay) ===== */
+.nav-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: flex-start;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-drawer.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-drawer-backdrop {
+    position: absolute;
+    inset: 0;
+    background: transparent; /* شفاف تمامًا: لا خلفية تخفي المقطع */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.nav-drawer-panel {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    background: transparent; /* شفاف تمامًا مثل مشغل الفيديو */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+}
+
+[dir="rtl"] .nav-drawer-panel {
+    transform: translateX(100%);
+    border: none;
+}
+
+.nav-drawer.is-open .nav-drawer-panel {
+    transform: translateX(0);
+}
+
+.nav-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: none;
+    background: transparent;
+}
+
+.nav-drawer-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+    background: none;
+    -webkit-text-fill-color: #ffffff;
+}
+
+.nav-drawer-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.nav-drawer-close:hover,
+.nav-drawer-close:focus-visible {
+    background: rgba(200, 29, 29, 0.6);
+    border-color: #ff6b1a;
+    outline: none;
+}
+
+.nav-drawer-body {
+    padding: 1rem 1.25rem;
+    flex: 1;
+}
+
+.nav-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.nav-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0.85rem;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.2s ease;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+.nav-menu-link:hover {
+    background: rgba(255, 107, 26, 0.3);
+    border-color: rgba(255, 107, 26, 0.6);
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+.nav-menu-link.is-active {
+    background: rgba(255, 107, 26, 0.38);
+    border-color: #ff6b1a;
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 0 16px rgba(255, 107, 26, 0.4);
+}
+
+.nav-item-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.55);
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    transition: all 0.2s ease;
+}
+
+.nav-menu-link:hover .nav-item-icon,
+.nav-menu-link.is-active .nav-item-icon {
+    border-color: #ff6b1a;
+    background: rgba(255, 107, 26, 0.3);
+}
+
+.nav-item-text {
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.nav-item-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff6b1a;
+    box-shadow: 0 0 8px #ff6b1a;
+    display: none;
+    margin-left: 0.5rem;
+}
+
+.nav-menu-link.is-active .nav-item-indicator {
+    display: block;
+}
+
+.nav-drawer-footer {
+    padding: 1.25rem 1.5rem;
+    border-top: none;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    background: transparent;
+}
+
+.nav-drawer-footer p {
+    margin: 0;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+/* ===== أزرار الرجوع والتنقل المباشر (Direct Return Navigation) ===== */
+.site-header-start {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+}
+
+.nav-back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 0.75rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+.nav-back-btn:hover,
+.nav-back-btn:focus-visible {
+    background: rgba(255, 107, 26, 0.22);
+    border-color: #ff6b1a;
+    color: #ff8c42;
+    outline: none;
+    transform: translateX(2px);
+}
+
+.nav-back-arrow {
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 800;
+    color: #ff6b1a;
+}
+
+.nav-back-home {
+    background: rgba(255, 107, 26, 0.12);
+    border-color: rgba(255, 107, 26, 0.28);
+}
+
+.nav-back-home:hover {
+    background: rgba(255, 107, 26, 0.25);
+    border-color: #ff6b1a;
+}
+
+@media (max-width: 480px) {
+    .site-header-inner {
+        padding: 0 0.75rem;
+    }
+    .site-header-start {
+        gap: 0.45rem;
+    }
+    .nav-back-btn {
+        padding: 0 0.6rem;
+        font-size: 0.88rem;
+    }
+    .site-brand-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 410px) {
+    .nav-back-home-text {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .site-brand-text {
+        font-size: 1rem;
+    }
+}
+
+/* ===================================
+   زر العودة للأعلى باللون الأحمر (Red Scroll To Top)
+   =================================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e52424 0%, #b81414 100%);
+    border: 2px solid rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 8px 24px rgba(229, 36, 36, 0.45), 0 3px 12px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(18px) scale(0.92);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 0;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover,
+.scroll-to-top:focus-visible {
+    background: linear-gradient(135deg, #f53333 0%, #cb1919 100%);
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    box-shadow: 0 10px 28px rgba(229, 36, 36, 0.65), 0 0 18px rgba(255, 255, 255, 0.35);
+    transform: translateY(-4px) scale(1.06);
+    outline: none;
+}
+
+.scroll-to-top:active {
+    transform: translateY(-1px) scale(0.96);
+}
+
+.scroll-to-top-icon {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+    stroke-width: 2.8;
+    transition: transform 0.25s ease;
+}
+
+.scroll-to-top:hover .scroll-to-top-icon {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    .scroll-to-top {
+        bottom: 22px;
+        right: 18px;
+        width: 46px;
+        height: 46px;
+    }
+    .scroll-to-top-icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* ===================================
+   النقطة الحمراء الوامضة بديلة الدبوس (Smooth Blinking Red Dot)
+   =================================== */
+@keyframes redDotBlink {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.8);
+        box-shadow: 0 0 0 0 rgba(229, 36, 36, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 8px 2px rgba(229, 36, 36, 0.9), 0 0 16px 4px rgba(229, 36, 36, 0.45);
+    }
+}
+
+.red-blinking-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #e52424;
+    vertical-align: middle;
+    margin-inline-end: 6px;
+    animation: redDotBlink 2.2s ease-in-out infinite;
+    flex-shrink: 0;
+}
